@@ -1,5 +1,7 @@
+import asyncio
 import sqlite3
 from datetime import datetime
+import json
 
 
 large_info = []
@@ -71,3 +73,9 @@ def time_update() -> int:
         temp_times[ids] += fix_times.get(ids)
         large_info[i]["timestamp"] += temp_times[ids]
     return 1
+
+
+async def generate_json_dumps(interval: int):
+    while True:
+        pass
+
