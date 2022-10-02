@@ -4,7 +4,6 @@ from pathlib import Path
 import sys
 from db_commands import db_search_periods, db_generate_fake_actions
 
-
 MULTIPLE_NUM = 60
 PATH = None
 FORMAT = '%(asctime)s %(message)s'
