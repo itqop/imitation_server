@@ -6,7 +6,8 @@ from db_commands import db_search_periods, db_generate_fake_actions
 import asyns_help
 import asyncio
 
-MULTIPLE_NUM = 60
+
+MULTIPLE_NUM = 20
 PATH = None
 FORMAT = '%(asctime)s %(message)s'
 INTERVAL = 10
@@ -29,7 +30,7 @@ if __name__ == '__main__':
                                 "<json data sending period time !IN SECONDS!> (maybe 10?)")
     except (IndexError, ValueError):
         logging.error("usage: main.py <path to db file> "
-                      "<MULTIPLE_NUM generation time acceleration multiplier (maybe 60?)>"
+                      "<MULTIPLE_NUM generation time acceleration multiplier (maybe 30?)>"
                       "<json data sending interval time !IN SECONDS!> (maybe 10?)")
         exit(1)
     except NotExists:
