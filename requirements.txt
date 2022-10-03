@@ -1,0 +1,8 @@
+antiorm==1.2.1
+asyncio==3.4.3
+DateTime==4.7
+db==0.1.1
+db-sqlite3==0.0.1
+pathlib==1.0.1
+pytz==2022.4
+zope.interface==5.4.0
