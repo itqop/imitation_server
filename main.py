@@ -12,7 +12,6 @@ PATH = None
 FORMAT = '%(asctime)s %(message)s'
 INTERVAL = 10
 RHOST = "127.0.0.1:8000"
-RHOST_GET = "127.0.0.1:8000/get"
 
 
 def convert_format(address: str) -> str:
@@ -23,8 +22,8 @@ def convert_format(address: str) -> str:
     """
     if not address.endswith('/'):
         address += '/'
-    if not address.startswith("http://"):
-        address = "http://" + address
+    if not address.startswith("https://"):
+        address = "https://" + address
     return address
 
 
