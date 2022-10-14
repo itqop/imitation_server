@@ -3,14 +3,15 @@ import datetime
 import pathlib
 import json
 import logging
+import requests
 
 
-async def tcp_start():
+async def generate_start():
     """
     ?
     :return: -async-
     """
-    logging.info(msg="Starting tcp server..")
+    logging.info(msg="Starting json generate..")
     await asyncio.sleep(1)
     path = pathlib.Path.cwd() / 'json_cache'
     while True:
@@ -26,3 +27,12 @@ async def tcp_start():
             p.unlink()
             logging.info(msg="Deleting " + p.name)
         await asyncio.sleep(10)
+
+
+async def get_intervals(rhost: str):
+
+    pass
+
+
+async def post_snapshots(rhost: str):
+    pass

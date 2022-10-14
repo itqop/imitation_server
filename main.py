@@ -11,6 +11,7 @@ MULTIPLE_NUM = 20
 PATH = None
 FORMAT = '%(asctime)s %(message)s'
 INTERVAL = 10
+RHOST = "localhost"
 
 
 if __name__ == '__main__':
@@ -23,15 +24,19 @@ if __name__ == '__main__':
         MULTIPLE_NUM = int(sys.argv[2])
         if len(sys.argv) > 3:
             INTERVAL = int(sys.argv[3])
+        elif len(sys.argv) > 4:
+            RHOST = str(sys.argv[4])
         else:
             logging.warning(msg="Set default interval time to 10.\n "
                                 "usage: main.py <path to db file> "
                                 "<MULTIPLE_NUM generation time acceleration multiplier (maybe 60?)>"
-                                "<json data sending period time !IN SECONDS!> (maybe 10?)")
+                                "<json data sending period time !IN SECONDS!> (maybe 10?)"
+                                "<https host address>")
     except (IndexError, ValueError):
         logging.error("usage: main.py <path to db file> "
                       "<MULTIPLE_NUM generation time acceleration multiplier (maybe 30?)>"
-                      "<json data sending interval time !IN SECONDS!> (maybe 10?)")
+                      "<json data sending interval time !IN SECONDS!> (maybe 10?)"
+                      "<https host address>")
         exit(1)
     except NotExists:
         logging.error("Not found db on path - " + PATH)
@@ -44,5 +49,5 @@ if __name__ == '__main__':
     logging.info(msg="Starting generate fake actions..")
     db_generate_fake_actions(PATH, periods)
     logging.info(msg="Starting async processing..")
-    asyncio.run(asyns_help.start(INTERVAL))
+    asyncio.run(asyns_help.start(INTERVAL, RHOST))
 

@@ -22,11 +22,9 @@ pip install -r requirements.txt
 usage: python3 main.py <path to db file> /
 <MULTIPLE_NUM generation time acceleration multiplier (maybe 30?)> /
 <json data sending interval time !IN SECONDS!> (maybe 10?) /
-<RHOST ip adress> /
-<RPORT open port> 
-<LPORT open port>
+<https host address>
 ```
 #### For example
 ```commandline
-python3 main.py /home/itqop/tcp_modbus_service.db 60 10 84.93.23.12 44 55
+python3 main.py /home/itqop/tcp_modbus_service.db 60 10 84.93.23.09
 ```
