@@ -82,7 +82,7 @@ def time_update() -> int:
 async def generate_json_dumps(interval: int):
     """
     Function for asynchronous generation of json snapshots from the database.
-    :param interval:
+    :param interval: interval time in seconds
     :return: -async-
     """
     logging.info(msg="Starting generate json dumps..")
