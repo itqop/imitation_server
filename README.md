@@ -22,7 +22,8 @@ pip install -r requirements.txt
 usage: python3 main.py <path to db file> /
 <MULTIPLE_NUM generation time acceleration multiplier (maybe 30?)> /
 <json data sending interval time !IN SECONDS!> (maybe 10?) /
-<https host address>
+<https host address for POST>
+<https host address for GET>
 ```
 #### For example
 ```commandline

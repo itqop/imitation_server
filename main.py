@@ -28,15 +28,18 @@ if __name__ == '__main__':
             RHOST = str(sys.argv[4])
         else:
             logging.warning(msg="Set default interval time to 10.\n "
+                                "Set default address to localhost \n"
                                 "usage: main.py <path to db file> "
                                 "<MULTIPLE_NUM generation time acceleration multiplier (maybe 60?)>"
                                 "<json data sending period time !IN SECONDS!> (maybe 10?)"
-                                "<https host address>")
+                                "<https host address for POST>"
+                                "<https host address for GET>")
     except (IndexError, ValueError):
         logging.error("usage: main.py <path to db file> "
                       "<MULTIPLE_NUM generation time acceleration multiplier (maybe 30?)>"
                       "<json data sending interval time !IN SECONDS!> (maybe 10?)"
-                      "<https host address>")
+                      "<https host address for POST>"
+                      "<https host address for GET>")
         exit(1)
     except NotExists:
         logging.error("Not found db on path - " + PATH)

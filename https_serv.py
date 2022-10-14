@@ -5,10 +5,13 @@ import json
 import logging
 import requests
 
+headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 
-async def generate_start():
+
+async def post_snapshots(rhost: str):
     """
-    ?
+    Function to send a snapshots to the server by POST request
+    :param rhost: https host address
     :return: -async-
     """
     logging.info(msg="Starting json generate..")
@@ -22,17 +25,31 @@ async def generate_start():
                 data["timestamp_push"] = int(datetime.datetime.now().timestamp())
             with open(p, "w") as outfile:
                 json.dump(data, outfile)
+
             logging.info(msg="Send " + p.name)
+            post = requests.post(rhost, data=data, headers=headers)
             await asyncio.sleep(1)
-            p.unlink()
-            logging.info(msg="Deleting " + p.name)
+            if post.status_code == 200:
+                logging.info(msg="Successful post snapshot! ~ " + p.name)
+                p.unlink()
+                logging.info(msg="Deleting " + p.name)
+            else:
+                logging.info(msg="ERROR post snapshot! ~ " + str(post.status_code))
+        print(11)
         await asyncio.sleep(10)
 
 
 async def get_intervals(rhost: str):
-
-    pass
-
-
-async def post_snapshots(rhost: str):
-    pass
+    """
+    Function to get updated intervals from the server
+    :param rhost: https host address
+    :return: -async-
+    """
+    con = requests.get(rhost)
+    if con.status_code == 200:
+        intervals = con.json()  # json with intervals
+        logging.info(msg="Successful get json with intervals! ~ " + str(dict(intervals))[:20])
+    else:
+        logging.info(msg="ERROR get json with intervals! ~ " + str(con.status_code))
+    # For fake server this feature needless
+    await asyncio.sleep(3000)
