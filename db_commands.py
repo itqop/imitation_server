@@ -88,7 +88,7 @@ async def generate_json_dumps(interval: int):
     logging.info(msg="Starting generate json dumps..")
     i = 0
     # timestamp_dict = {"timestamp_push": 0, "timestamp_create": 0, "id": ID, "info": []}
-    timestamp_dict = {"timestamp_push": 0, "timestamp_create": 0, "id": ID, "info": []}
+    timestamp_dict = {"timestamp_push": 0, "timestamp_create": 0, "id": ID, "life": ["a few objects"], "info": []}
     # temp_stamp = large_info[i]["timestamp"]
     temp_stamp = large_info[i][5]
     while True:

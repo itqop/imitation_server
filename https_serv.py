@@ -28,7 +28,7 @@ async def post_snapshots(rhost: str):
 
             logging.info(msg="Send " + p.name)
             try:
-                post = requests.post(rhost + "data/" + str(ID), json=data, headers=headers)
+                post = requests.post(rhost + str(ID), json=data, headers=headers)
                 if post.status_code == 200:
                     logging.info(msg="Successful post snapshot! ~ " + p.name)
                     p.unlink()
@@ -49,7 +49,7 @@ async def get_intervals(rhost: str):
     :return: -async-
     """
     while True:
-        con = requests.get(rhost + "get/" + str(ID))
+        con = requests.get(rhost + str(ID))
         if con.status_code == 200:
             intervals = con.json()  # json with intervals
             logging.info(msg="Successful get json with intervals! ")

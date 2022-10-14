@@ -27,5 +27,5 @@ usage: python3 main.py <path to db file> /
 ```
 #### For example
 ```commandline
-python3 main.py /home/itqop/tcp_modbus_service.db 60 10 84.93.23.09
+python3 main.py /home/itqop/tcp_modbus_service.db 60 10 84.93.23.09/post 84.93.23.09/get
 ```
