@@ -53,7 +53,6 @@ async def get_intervals(rhost: str):
         if con.status_code == 200:
             intervals = con.json()  # json with intervals
             logging.info(msg="Successful get json with intervals! ")
-            print(intervals)
         else:
             logging.info(msg="ERROR get json with intervals! ~ " + str(con.status_code))
         # For fake server this feature needless
