@@ -11,7 +11,8 @@ MULTIPLE_NUM = 20
 PATH = None
 FORMAT = '%(asctime)s %(message)s'
 INTERVAL = 10
-RHOST = "127.0.0.1:8000"
+RHOST = "127.0.0.1:8000/data/"
+RHOST_GET = "127.0.0.1:8000/get/"
 
 
 def convert_format(address: str) -> str:
@@ -68,5 +69,5 @@ if __name__ == '__main__':
     db_generate_fake_actions(PATH, periods)
     logging.info(msg="Starting async processing..")
     RHOST = convert_format(RHOST)
-    asyncio.run(asyns_help.start(INTERVAL, RHOST))
+    asyncio.run(asyns_help.start(INTERVAL, RHOST, RHOST_GET))
 
