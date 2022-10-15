@@ -3,7 +3,8 @@ import datetime
 import pathlib
 import json
 import logging
-import requests
+
+import urllib3.exceptions
 from urllib3 import PoolManager
 
 from db_commands import ID
@@ -40,7 +41,7 @@ async def post_snapshots(rhost: str):
                 else:
                     logging.info(msg="ERROR post snapshot! ~ " + str(post.status))
                 post.close()
-            except requests.exceptions.ConnectionError:
+            except urllib3.exceptions.ConnectionError:
                 logging.error(msg="SERVER UNAVAILABLE!!!")
                 continue
         await asyncio.sleep(10)
